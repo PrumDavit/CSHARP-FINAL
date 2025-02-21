@@ -1,0 +1,32 @@
+D:\C#\C# lll\POS BookShop\POS BookShop\bin\Debug\POS BookShop.exe.config
+D:\C#\C# lll\POS BookShop\POS BookShop\bin\Debug\POS BookShop.exe
+D:\C#\C# lll\POS BookShop\POS BookShop\bin\Debug\POS BookShop.pdb
+D:\C#\C# lll\POS BookShop\POS BookShop\obj\Debug\POS BookShop.csproj.AssemblyReference.cache
+D:\C#\C# lll\POS BookShop\POS BookShop\obj\Debug\POS_BookShop.Properties.Resources.resources
+D:\C#\C# lll\POS BookShop\POS BookShop\obj\Debug\POS BookShop.csproj.GenerateResource.cache
+D:\C#\C# lll\POS BookShop\POS BookShop\obj\Debug\POS BookShop.csproj.CoreCompileInputs.cache
+D:\C#\C# lll\POS BookShop\POS BookShop\obj\Debug\POS BookShop.exe
+D:\C#\C# lll\POS BookShop\POS BookShop\obj\Debug\POS BookShop.pdb
+D:\C#\C# lll\POS BookShop\POS BookShop\bin\Debug\Guna.UI2.dll
+D:\C#\C# lll\POS BookShop\POS BookShop\obj\Debug\POS Book.8A754037.Up2Date
+D:\C#\C# lll\POS BookShop\POS BookShop\obj\Debug\POS_BookShop.frmlogin.resources
+D:\C#\C# lll\POS BookShop\POS BookShop\obj\Debug\POS_BookShop.frmDashboardAdmin.resources
+D:\C#\C# lll\POS BookShop\POS BookShop\obj\Debug\POS_BookShop.frmDashboardSale.resources
+D:\C#\C# lll\POS BookShop\POS BookShop\obj\Debug\POS_BookShop.frmDashboard.resources
+D:\C#\C# lll\POS BookShop\POS BookShop\obj\Debug\POS_BookShop.frmEmployee.resources
+D:\C#\CSharp\POS BookShop\POS BookShop\bin\Debug\POS BookShop.exe.config
+D:\C#\CSharp\POS BookShop\POS BookShop\bin\Debug\POS BookShop.exe
+D:\C#\CSharp\POS BookShop\POS BookShop\bin\Debug\POS BookShop.pdb
+D:\C#\CSharp\POS BookShop\POS BookShop\bin\Debug\Guna.UI2.dll
+D:\C#\CSharp\POS BookShop\POS BookShop\obj\Debug\POS BookShop.csproj.AssemblyReference.cache
+D:\C#\CSharp\POS BookShop\POS BookShop\obj\Debug\POS_BookShop.frmDashboard.resources
+D:\C#\CSharp\POS BookShop\POS BookShop\obj\Debug\POS_BookShop.frmDashboardAdmin.resources
+D:\C#\CSharp\POS BookShop\POS BookShop\obj\Debug\POS_BookShop.frmDashboardSale.resources
+D:\C#\CSharp\POS BookShop\POS BookShop\obj\Debug\POS_BookShop.frmEmployee.resources
+D:\C#\CSharp\POS BookShop\POS BookShop\obj\Debug\POS_BookShop.frmlogin.resources
+D:\C#\CSharp\POS BookShop\POS BookShop\obj\Debug\POS_BookShop.Properties.Resources.resources
+D:\C#\CSharp\POS BookShop\POS BookShop\obj\Debug\POS BookShop.csproj.GenerateResource.cache
+D:\C#\CSharp\POS BookShop\POS BookShop\obj\Debug\POS BookShop.csproj.CoreCompileInputs.cache
+D:\C#\CSharp\POS BookShop\POS BookShop\obj\Debug\POS Book.8A754037.Up2Date
+D:\C#\CSharp\POS BookShop\POS BookShop\obj\Debug\POS BookShop.exe
+D:\C#\CSharp\POS BookShop\POS BookShop\obj\Debug\POS BookShop.pdb
