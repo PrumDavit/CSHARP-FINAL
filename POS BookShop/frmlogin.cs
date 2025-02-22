@@ -30,20 +30,19 @@ namespace POS_BookShop
                 DataConnection.ConnectionDB();
                 // Fetch roles and populate the comboBoxRole
                 string queryRoles = "SELECT DISTINCT Roles FROM tblEmployees";
-                SqlCommand cmd = new SqlCommand(queryRoles, DataConnection.DataCon);
-
-                SqlDataReader drRoles = cmd.ExecuteReader();
-
-                // Clear existing items in comboBoxRole
-                cbbRole.Items.Clear();
-
-                while (drRoles.Read())
+                using (SqlCommand scm = new SqlCommand(queryRoles, DataConnection.DataCon))
                 {
-                    // Add each role to the comboBoxRole
-                    cbbRole.Items.Add(drRoles["roles"].ToString());
+                    using (SqlDataReader drRoles = scm.ExecuteReader())
+                    {
+                        cbbRole.Items.Clear();
+
+                        while (drRoles.Read())
+                        {
+                            // Add each role to the comboBoxRole
+                            cbbRole.Items.Add(drRoles["roles"].ToString());
+                        }
+                    }
                 }
-                cmd.Dispose();
-                drRoles.Close();
             }
             catch (Exception ex)
             {
@@ -61,45 +60,48 @@ namespace POS_BookShop
                 string role = cbbRole.SelectedItem?.ToString();
                 // Check if the username and password are correct
                 string queryLogin = $"\tSELECT Name,Image,Username,Password,roles from tblEmployees WHERE Username='{username}' AND Password='{password}' AND Roles='{cbbRole.SelectedItem}'";
-                SqlCommand s = new SqlCommand(queryLogin, DataConnection.DataCon);
-                SqlDataReader dr = s.ExecuteReader();
-                if (dr.Read())
+                using (SqlCommand s = new SqlCommand(queryLogin, DataConnection.DataCon))
                 {
-                    byte[] imageBytes = dr["Image"] as byte[];
-
-                    if (imageBytes != null)
+                    using (SqlDataReader dr = s.ExecuteReader())
                     {
-                        using (MemoryStream ms = new MemoryStream(imageBytes))
+                        if (dr.Read())
                         {
-                            Image = Image.FromStream(ms); //Display image in PictureBox
+                            byte[] imageBytes = dr["Image"] as byte[];
+
+                            if (imageBytes != null)
+                            {
+                                using (MemoryStream ms = new MemoryStream(imageBytes))
+                                {
+                                    Image = Image.FromStream(ms); //Display image in PictureBox
+                                }
+                            }
+                            string name = dr["Name"]?.ToString();
+                            //MessageBox.Show($"Welcome {name}");
+                            // Use case-insensitive comparison
+                            if (string.Equals(role, "Sale", StringComparison.OrdinalIgnoreCase))
+                            {
+                                frmDashboardSale dashboardSale = new frmDashboardSale(name, role, imageBytes);
+                                dashboardSale.Show();
+                                this.Hide();
+                            }
+                            else if (string.Equals(role, "Admin", StringComparison.OrdinalIgnoreCase))
+                            {
+                                frmDashboardAdmin dashbAdmin = new frmDashboardAdmin(name, role, imageBytes);
+                                dashbAdmin.Show();
+                                this.Hide();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Role not found!");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Invalid username or password or role!");
                         }
                     }
-                    string name = dr["Name"]?.ToString();
-                    //MessageBox.Show($"Welcome {name}");
-                    // Use case-insensitive comparison
-                    if (string.Equals(role, "Sale", StringComparison.OrdinalIgnoreCase))
-                    {
-                        frmDashboardSale dashboardSale = new frmDashboardSale(name, role, imageBytes);
-                        dashboardSale.Show();
-                        this.Hide();
-                    }
-                    else if (string.Equals(role, "Admin", StringComparison.OrdinalIgnoreCase))
-                    {
-                        frmDashboardAdmin dashbAdmin = new frmDashboardAdmin(name, role, imageBytes);
-                        dashbAdmin.Show();
-                        this.Hide();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Role not found!");
-                    }
                 }
-                else
-                {
-                    MessageBox.Show("Invalid username or password or role!");  
-                }
-                s.Dispose();
-                dr.Close();
+                    
             }
             catch (Exception ex)
             {

@@ -75,10 +75,34 @@ namespace POS_BookShop
                 }
                 try
                 {
-                    SqlDataAdapter data = new SqlDataAdapter("SELECT * FROM tblEmployees", DataConnection.DataCon);
-                    DataTable dt = new DataTable();
-                    data.Fill(dt);
-                    DatagridviewEmp.DataSource = dt;
+                    DatagridviewEmp.Rows.Clear();
+                    string QueryEmp = "SELECT * FROM tblEmployees;";
+                    SqlCommand s = new SqlCommand(QueryEmp, DataConnection.DataCon);
+                    SqlDataReader r = s.ExecuteReader();
+                    DatagridviewEmp.RowTemplate.Height = 45;
+                    while (r.Read())
+                    {
+                        string empid = r[0].ToString();
+                        string name = r[1].ToString();
+                        string username = r[2].ToString();
+                        string password = r[3].ToString();
+                        string sex = r[4].ToString();
+                        byte[] imageData = null;
+                        if (r[5] != DBNull.Value)
+                        {
+                            imageData = (byte[])r[5];
+                        }
+                        string dob = r[6].ToString();
+                        string role = r[7].ToString();
+                        string hiredate = r[8].ToString();
+                        string email = r[9].ToString();
+                        string phone = r[10].ToString();
+                        string salary = r[11].ToString();
+                        string address = r[12].ToString();
+                        DatagridviewEmp.Rows.Add(empid, name, username, password, sex, imageData, dob, role, hiredate, email, phone, salary, address);
+                    }
+                    r.Close();
+                    s.Dispose();
                 }
                 catch (Exception ex)
                 {
@@ -130,17 +154,6 @@ namespace POS_BookShop
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
-            
-            string countTotalEmp = "SELECT COUNT(*) FROM tblEmployees;";
-            SqlCommand s1 = new SqlCommand(countTotalEmp, DataConnection.DataCon);
-            SqlDataReader r1 = s1.ExecuteReader();
-            while (r1.Read())
-            {
-                string total = r1[0] + "";
-                //TotalEmp.Text = total;
-            }
-            r1.Close();
-            s1.Dispose();
         }
 
         private void btndelete_Click(object sender, EventArgs e)
@@ -204,69 +217,74 @@ namespace POS_BookShop
 
         private void btnupdate_Click(object sender, EventArgs e)
         {
-            try
-            {
-                using (SqlCommand cmd = new SqlCommand("sp_UpdateEmployee", DataConnection.DataCon))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
+            DialogResult result = MessageBox.Show("Are You Sure?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                    cmd.Parameters.AddWithValue("@Name", txtName.Text);
-                    cmd.Parameters.AddWithValue("@Username", txtusername.Text);
-                    cmd.Parameters.AddWithValue("@Password", txtpassword.Text);
-                    cmd.Parameters.AddWithValue("@Sex", cbbgender.SelectedItem?.ToString());
-                    cmd.Parameters.AddWithValue("@Image", (object)Images ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@DOB", DOB.Value);
-                    cmd.Parameters.AddWithValue("@Roles", cbbrole.Text);
-                    cmd.Parameters.AddWithValue("@Hiredate", hiredate.Value);
-                    cmd.Parameters.AddWithValue("@Email", txtemail.Text);
-                    cmd.Parameters.AddWithValue("@Phone", txtphone.Text);
-                    cmd.Parameters.AddWithValue("@Salary", decimal.Parse(txtsalary.Text));
-                    cmd.Parameters.AddWithValue("@Address", txtaddress.Text);
-                    cmd.ExecuteNonQuery();
-                }
+            if (result == DialogResult.Yes)
+            {
                 try
                 {
-                    DatagridviewEmp.Rows.Clear();
-                    string QueryEmp = "SELECT * FROM tblEmployees;";
-                    SqlCommand s = new SqlCommand(QueryEmp, DataConnection.DataCon);
-                    SqlDataReader r = s.ExecuteReader();
-                    DatagridviewEmp.RowTemplate.Height = 45;
-                    while (r.Read())
+                    using (SqlCommand cmd = new SqlCommand("sp_UpdateEmployee", DataConnection.DataCon))
                     {
-                        string empid = r[0].ToString();
-                        string name = r[1].ToString();
-                        string username = r[2].ToString();
-                        string password = r[3].ToString();
-                        string sex = r[4].ToString();
-                        byte[] imageData = null;
-                        if (r[5] != DBNull.Value)
-                        {
-                            imageData = (byte[])r[5];
-                        }
-                        string dob = r[6].ToString();
-                        string role = r[7].ToString();
-                        string hiredate = r[8].ToString();
-                        string email = r[9].ToString();
-                        string phone = r[10].ToString();
-                        string salary = r[11].ToString();
-                        string address = r[12].ToString();
+                        cmd.CommandType = CommandType.StoredProcedure;
 
-                        // Add row to DataGridView
-                        DatagridviewEmp.Rows.Add(empid, name, username, password, sex, imageData, dob, role, hiredate, email, phone, salary, address);
+                        cmd.Parameters.AddWithValue("@Name", txtName.Text);
+                        cmd.Parameters.AddWithValue("@Username", txtusername.Text);
+                        cmd.Parameters.AddWithValue("@Password", txtpassword.Text);
+                        cmd.Parameters.AddWithValue("@Sex", cbbgender.SelectedItem?.ToString());
+                        cmd.Parameters.AddWithValue("@Image", (object)Images ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@DOB", DOB.Value);
+                        cmd.Parameters.AddWithValue("@Roles", cbbrole.Text);
+                        cmd.Parameters.AddWithValue("@Hiredate", hiredate.Value);
+                        cmd.Parameters.AddWithValue("@Email", txtemail.Text);
+                        cmd.Parameters.AddWithValue("@Phone", txtphone.Text);
+                        cmd.Parameters.AddWithValue("@Salary", decimal.Parse(txtsalary.Text));
+                        cmd.Parameters.AddWithValue("@Address", txtaddress.Text);
+                        cmd.ExecuteNonQuery();
                     }
-                    r.Close();
-                    s.Dispose();
+                    try
+                    {
+                        DatagridviewEmp.Rows.Clear();
+                        string QueryEmp = "SELECT * FROM tblEmployees;";
+                        SqlCommand s = new SqlCommand(QueryEmp, DataConnection.DataCon);
+                        SqlDataReader r = s.ExecuteReader();
+                        DatagridviewEmp.RowTemplate.Height = 45;
+                        while (r.Read())
+                        {
+                            string empid = r[0].ToString();
+                            string name = r[1].ToString();
+                            string username = r[2].ToString();
+                            string password = r[3].ToString();
+                            string sex = r[4].ToString();
+                            byte[] imageData = null;
+                            if (r[5] != DBNull.Value)
+                            {
+                                imageData = (byte[])r[5];
+                            }
+                            string dob = r[6].ToString();
+                            string role = r[7].ToString();
+                            string hiredate = r[8].ToString();
+                            string email = r[9].ToString();
+                            string phone = r[10].ToString();
+                            string salary = r[11].ToString();
+                            string address = r[12].ToString();
+
+                            // Add row to DataGridView
+                            DatagridviewEmp.Rows.Add(empid, name, username, password, sex, imageData, dob, role, hiredate, email, phone, salary, address);
+                        }
+                        r.Close();
+                        s.Dispose();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
+                    Cleartxt();
+                    MessageBox.Show("Employee Update successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error: " + ex.Message);
+                    MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                Cleartxt();
-                MessageBox.Show("Employee Update successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

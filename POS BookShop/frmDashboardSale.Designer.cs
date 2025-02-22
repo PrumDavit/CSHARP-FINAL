@@ -36,12 +36,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnbook = new Guna.UI2.WinForms.Guna2TileButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.btncate = new Guna.UI2.WinForms.Guna2TileButton();
             this.lbshowfrm = new System.Windows.Forms.Label();
             this.displayRole = new System.Windows.Forms.Label();
             this.displayUname = new System.Windows.Forms.Label();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.btnemp = new Guna.UI2.WinForms.Guna2TileButton();
             this.btndboard = new Guna.UI2.WinForms.Guna2TileButton();
             this.profile = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -71,7 +69,7 @@
             this.btnlogout.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnlogout.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F);
             this.btnlogout.ForeColor = System.Drawing.Color.White;
-            this.btnlogout.Location = new System.Drawing.Point(0, 573);
+            this.btnlogout.Location = new System.Drawing.Point(0, 437);
             this.btnlogout.Name = "btnlogout";
             this.btnlogout.Size = new System.Drawing.Size(256, 49);
             this.btnlogout.TabIndex = 6;
@@ -89,7 +87,7 @@
             this.btnexp.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnexp.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F);
             this.btnexp.ForeColor = System.Drawing.Color.White;
-            this.btnexp.Location = new System.Drawing.Point(0, 504);
+            this.btnexp.Location = new System.Drawing.Point(0, 368);
             this.btnexp.Name = "btnexp";
             this.btnexp.Size = new System.Drawing.Size(256, 49);
             this.btnexp.TabIndex = 6;
@@ -106,7 +104,7 @@
             this.btnincome.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnincome.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F);
             this.btnincome.ForeColor = System.Drawing.Color.White;
-            this.btnincome.Location = new System.Drawing.Point(0, 434);
+            this.btnincome.Location = new System.Drawing.Point(0, 298);
             this.btnincome.Name = "btnincome";
             this.btnincome.Size = new System.Drawing.Size(256, 49);
             this.btnincome.TabIndex = 6;
@@ -134,7 +132,7 @@
             this.btnbook.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnbook.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F);
             this.btnbook.ForeColor = System.Drawing.Color.White;
-            this.btnbook.Location = new System.Drawing.Point(0, 362);
+            this.btnbook.Location = new System.Drawing.Point(0, 226);
             this.btnbook.Name = "btnbook";
             this.btnbook.Size = new System.Drawing.Size(256, 49);
             this.btnbook.TabIndex = 5;
@@ -149,23 +147,6 @@
             this.label1.Size = new System.Drawing.Size(155, 25);
             this.label1.TabIndex = 2;
             this.label1.Text = "Book Shop Cambodia";
-            // 
-            // btncate
-            // 
-            this.btncate.Animated = true;
-            this.btncate.AutoRoundedCorners = true;
-            this.btncate.BorderRadius = 23;
-            this.btncate.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btncate.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btncate.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btncate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btncate.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F);
-            this.btncate.ForeColor = System.Drawing.Color.White;
-            this.btncate.Location = new System.Drawing.Point(0, 291);
-            this.btncate.Name = "btncate";
-            this.btncate.Size = new System.Drawing.Size(256, 49);
-            this.btncate.TabIndex = 4;
-            this.btncate.Text = "Category";
             // 
             // lbshowfrm
             // 
@@ -212,23 +193,6 @@
             this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2CirclePictureBox1.TabIndex = 2;
             this.guna2CirclePictureBox1.TabStop = false;
-            // 
-            // btnemp
-            // 
-            this.btnemp.Animated = true;
-            this.btnemp.AutoRoundedCorners = true;
-            this.btnemp.BorderRadius = 23;
-            this.btnemp.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnemp.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnemp.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnemp.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnemp.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F);
-            this.btnemp.ForeColor = System.Drawing.Color.White;
-            this.btnemp.Location = new System.Drawing.Point(0, 221);
-            this.btnemp.Name = "btnemp";
-            this.btnemp.Size = new System.Drawing.Size(256, 49);
-            this.btnemp.TabIndex = 3;
-            this.btnemp.Text = "Employee";
             // 
             // btndboard
             // 
@@ -283,9 +247,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.btnbook);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.btncate);
             this.panel1.Controls.Add(this.guna2CirclePictureBox1);
-            this.panel1.Controls.Add(this.btnemp);
             this.panel1.Controls.Add(this.btndboard);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -304,6 +266,7 @@
             this.Name = "frmDashboardSale";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmDashboardSale";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmDashboardSale_Load);
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.profile)).EndInit();
@@ -324,12 +287,10 @@
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2TileButton btnbook;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2TileButton btncate;
         private System.Windows.Forms.Label lbshowfrm;
         private System.Windows.Forms.Label displayRole;
         private System.Windows.Forms.Label displayUname;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
-        private Guna.UI2.WinForms.Guna2TileButton btnemp;
         private Guna.UI2.WinForms.Guna2TileButton btndboard;
         private Guna.UI2.WinForms.Guna2CirclePictureBox profile;
         private System.Windows.Forms.Panel panel2;
