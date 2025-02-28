@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,26 +13,41 @@ namespace POS_BookShop
 {
     public partial class frmDashboardSale : Form
     {
-        private string name;
-        private string role;
-        private byte[] imageBytes;
-
+        private Form activeForm;
+        private void OpenChildForm(Form childForm)
+        {
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            this.showbtnclick.Controls.Add(childForm);
+            this.showbtnclick.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+        }
         public frmDashboardSale()
         {
             InitializeComponent();
         }
 
-        public frmDashboardSale(string name, string role, byte[] imageBytes)
+        public frmDashboardSale(string name, string role, byte[] image)
         {
             InitializeComponent();
-            this.name = name;
-            this.role = role;
-            this.imageBytes = imageBytes;
+            displayUname.Text = name;
+            displayRole.Text = role;
+            if (image != null)
+            {
+                using (MemoryStream ms = new MemoryStream(image))
+                {
+                    System.Drawing.Image img = System.Drawing.Image.FromStream(ms);
+                    profile.Image = img;
+                }
+            }
         }
 
         private void frmDashboardSale_Load(object sender, EventArgs e)
         {
-
+            btndboard.PerformClick();
         }
 
         private void btnlogout_Click(object sender, EventArgs e)
@@ -44,6 +60,22 @@ namespace POS_BookShop
             }
             else
                 return;
+        }
+
+        private void showbtnclick_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btndboard_Click(object sender, EventArgs e)
+        {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+            lbshowfrm.Text = "Dashboard";
+            frmDashboard frmDashboard = new frmDashboard();
+            OpenChildForm(frmDashboard);
         }
     }
 }

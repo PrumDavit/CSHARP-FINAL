@@ -57,6 +57,7 @@
             this.showbtnclick.Name = "showbtnclick";
             this.showbtnclick.Size = new System.Drawing.Size(1599, 680);
             this.showbtnclick.TabIndex = 5;
+            this.showbtnclick.Paint += new System.Windows.Forms.PaintEventHandler(this.showbtnclick_Paint);
             // 
             // btnlogout
             // 
@@ -210,6 +211,7 @@
             this.btndboard.Size = new System.Drawing.Size(256, 49);
             this.btndboard.TabIndex = 2;
             this.btndboard.Text = "Dashboard";
+            this.btndboard.Click += new System.EventHandler(this.btndboard_Click);
             // 
             // profile
             // 

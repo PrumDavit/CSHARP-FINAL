@@ -71,7 +71,6 @@ namespace POS_BookShop
                     cmd.Parameters.AddWithValue("@Salary", decimal.Parse(txtsalary.Text));
                     cmd.Parameters.AddWithValue("@Address", txtaddress.Text);
                     cmd.ExecuteNonQuery();
-
                 }
                 try
                 {
@@ -119,13 +118,15 @@ namespace POS_BookShop
 
         private void frmEmployee_Load(object sender, EventArgs e)
         {
+            btndelete.Enabled = false;
+            btnupdate.Enabled = false;
             try
             {
                 DatagridviewEmp.Rows.Clear();
                 string QueryEmp = "SELECT * FROM tblEmployees;";
                 SqlCommand s = new SqlCommand(QueryEmp, DataConnection.DataCon);
                 SqlDataReader r = s.ExecuteReader();
-                DatagridviewEmp.RowTemplate.Height = 45;
+                DatagridviewEmp.RowTemplate.Height = 100;
                 while (r.Read())
                 {
                     string empid = r[0].ToString();
@@ -146,6 +147,7 @@ namespace POS_BookShop
                     string salary = r[11].ToString();
                     string address = r[12].ToString();
                     DatagridviewEmp.Rows.Add(empid, name, username, password, sex, imageData, dob, role, hiredate, email, phone, salary, address);
+                    DatagridviewEmp.Columns[11].DefaultCellStyle.Format = "C";
                 }
                 r.Close();
                 s.Dispose();
@@ -155,7 +157,7 @@ namespace POS_BookShop
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
-
+        string empid;
         private void btndelete_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are You Sure?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -164,9 +166,8 @@ namespace POS_BookShop
             {
                 try
                 {
-                    string phones = txtphone.Text;
-                    SqlCommand cmd = new SqlCommand("DELETE FROM tblEmployees WHERE Phone = @phone", DataConnection.DataCon);
-                    cmd.Parameters.AddWithValue("@phone", phones);
+                    SqlCommand cmd = new SqlCommand("DELETE FROM tblEmployees WHERE EmployeeID = @empid", DataConnection.DataCon);
+                    cmd.Parameters.AddWithValue("@empid", int.Parse(empid));
                     cmd.ExecuteNonQuery();
                     try
                     {
@@ -174,7 +175,7 @@ namespace POS_BookShop
                         string QueryEmp = "SELECT * FROM tblEmployees;";
                         SqlCommand s = new SqlCommand(QueryEmp, DataConnection.DataCon);
                         SqlDataReader r = s.ExecuteReader();
-                        DatagridviewEmp.RowTemplate.Height = 45;
+                        DatagridviewEmp.RowTemplate.Height = 100;
                         while (r.Read())
                         {
                             string empid = r[0].ToString();
@@ -206,6 +207,8 @@ namespace POS_BookShop
                         MessageBox.Show("Error: " + ex.Message);
                     }
                     Cleartxt();
+                    btnupdate.Enabled = true;
+                    btndelete.Enabled = true;
                     MessageBox.Show("Deleted Successfully!");
                 }
                 catch (Exception ex)
@@ -218,7 +221,6 @@ namespace POS_BookShop
         private void btnupdate_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are You Sure?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
             if (result == DialogResult.Yes)
             {
                 try
@@ -227,6 +229,7 @@ namespace POS_BookShop
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 
+                        cmd.Parameters.AddWithValue("EmployeeID",int.Parse(empid));  
                         cmd.Parameters.AddWithValue("@Name", txtName.Text);
                         cmd.Parameters.AddWithValue("@Username", txtusername.Text);
                         cmd.Parameters.AddWithValue("@Password", txtpassword.Text);
@@ -247,7 +250,7 @@ namespace POS_BookShop
                         string QueryEmp = "SELECT * FROM tblEmployees;";
                         SqlCommand s = new SqlCommand(QueryEmp, DataConnection.DataCon);
                         SqlDataReader r = s.ExecuteReader();
-                        DatagridviewEmp.RowTemplate.Height = 45;
+                        DatagridviewEmp.RowTemplate.Height = 100;
                         while (r.Read())
                         {
                             string empid = r[0].ToString();
@@ -279,6 +282,8 @@ namespace POS_BookShop
                         MessageBox.Show("Error: " + ex.Message);
                     }
                     Cleartxt();
+                    btnupdate.Enabled = true;
+                    btndelete.Enabled = true;
                     MessageBox.Show("Employee Update successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
@@ -290,7 +295,7 @@ namespace POS_BookShop
 
         private void DatagridviewEmp_Click(object sender, EventArgs e)
         {
-            
+            empid = DatagridviewEmp.SelectedRows[0].Cells["col_empid"].Value.ToString();
             string name = DatagridviewEmp.SelectedRows[0].Cells["col_name"].Value.ToString();
             txtName.Text = name;
             string username = DatagridviewEmp.SelectedRows[0].Cells["col_username"].Value.ToString();
@@ -318,7 +323,92 @@ namespace POS_BookShop
             {
                 Picture.Image = Image.FromStream(ms);
             }
-            
+            btnupdate.Enabled = true;
+            btndelete.Enabled = true;
+
         }
+
+        private void txtsearchemp_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtsearchemp.Text))
+            {
+                LoadAllEmployees(); 
+            }
+            else
+            {
+                SearchEmployee(txtsearchemp.Text.Trim()); 
+            }
+        }
+
+        private void SearchEmployee(string searchby_name)
+        {
+            try
+            {
+                using (SqlCommand empsearch = new SqlCommand("SELECT * FROM tblEmployees WHERE Name LIKE @name", DataConnection.DataCon))
+                {
+                    empsearch.Parameters.Add("@name", SqlDbType.NVarChar).Value = "%" + searchby_name + "%";
+
+                    if (DataConnection.DataCon.State == ConnectionState.Closed)
+                    {
+                        DataConnection.DataCon.Open();
+                    }
+
+                    using (SqlDataReader remp = empsearch.ExecuteReader())
+                    {
+                        DatagridviewEmp.Rows.Clear();
+                        DatagridviewEmp.RowTemplate.Height = 100;
+
+                        while (remp.Read())
+                        {
+                            DatagridviewEmp.Rows.Add(
+                                remp[0].ToString(), remp[1].ToString(), remp[2].ToString(), remp[3].ToString(),
+                                remp[4].ToString(), remp[5] != DBNull.Value ? (byte[])remp[5] : null,
+                                remp[6].ToString(), remp[7].ToString(), remp[8].ToString(), remp[9].ToString(),
+                                remp[10].ToString(), remp[11].ToString(), remp[12].ToString()
+                            );
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void LoadAllEmployees()
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM tblEmployees", DataConnection.DataCon))
+                {
+                    if (DataConnection.DataCon.State == ConnectionState.Closed)
+                    {
+                        DataConnection.DataCon.Open();
+                    }
+
+                    using (SqlDataReader r = cmd.ExecuteReader())
+                    {
+                        DatagridviewEmp.Rows.Clear();
+                        DatagridviewEmp.RowTemplate.Height = 100;
+
+                        while (r.Read())
+                        {
+                            DatagridviewEmp.Rows.Add(
+                                r[0].ToString(), r[1].ToString(), r[2].ToString(), r[3].ToString(),
+                                r[4].ToString(), r[5] != DBNull.Value ? (byte[])r[5] : null,
+                                r[6].ToString(), r[7].ToString(), r[8].ToString(), r[9].ToString(),
+                                r[10].ToString(), r[11].ToString(), r[12].ToString()
+                            );
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
     }
 }

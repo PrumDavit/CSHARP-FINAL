@@ -30,3 +30,4 @@ D:\C#\CSharp\POS BookShop\POS BookShop\obj\Debug\POS BookShop.csproj.CoreCompile
 D:\C#\CSharp\POS BookShop\POS BookShop\obj\Debug\POS Book.8A754037.Up2Date
 D:\C#\CSharp\POS BookShop\POS BookShop\obj\Debug\POS BookShop.exe
 D:\C#\CSharp\POS BookShop\POS BookShop\obj\Debug\POS BookShop.pdb
+D:\C#\CSharp\POS BookShop\POS BookShop\obj\Debug\POS_BookShop.frmCategories.resources

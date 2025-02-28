@@ -246,7 +246,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(256, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1599, 90);
+            this.panel2.Size = new System.Drawing.Size(1668, 90);
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -266,7 +266,7 @@
             this.displayRole.AutoSize = true;
             this.displayRole.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.displayRole.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.displayRole.Location = new System.Drawing.Point(1491, 45);
+            this.displayRole.Location = new System.Drawing.Point(1452, 45);
             this.displayRole.Name = "displayRole";
             this.displayRole.Size = new System.Drawing.Size(32, 19);
             this.displayRole.TabIndex = 6;
@@ -278,7 +278,7 @@
             this.displayUname.AutoSize = true;
             this.displayUname.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.displayUname.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.displayUname.Location = new System.Drawing.Point(1491, 20);
+            this.displayUname.Location = new System.Drawing.Point(1452, 20);
             this.displayUname.Name = "displayUname";
             this.displayUname.Size = new System.Drawing.Size(83, 25);
             this.displayUname.TabIndex = 4;
@@ -291,7 +291,7 @@
             this.profile.FillColor = System.Drawing.Color.Transparent;
             this.profile.Image = ((System.Drawing.Image)(resources.GetObject("profile.Image")));
             this.profile.ImageRotate = 0F;
-            this.profile.Location = new System.Drawing.Point(1593, 12);
+            this.profile.Location = new System.Drawing.Point(1574, 12);
             this.profile.Name = "profile";
             this.profile.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.profile.Size = new System.Drawing.Size(64, 64);
@@ -305,7 +305,7 @@
             this.showbtnclick.Dock = System.Windows.Forms.DockStyle.Fill;
             this.showbtnclick.Location = new System.Drawing.Point(256, 90);
             this.showbtnclick.Name = "showbtnclick";
-            this.showbtnclick.Size = new System.Drawing.Size(1599, 680);
+            this.showbtnclick.Size = new System.Drawing.Size(1668, 680);
             this.showbtnclick.TabIndex = 2;
             this.showbtnclick.Paint += new System.Windows.Forms.PaintEventHandler(this.showbtnclick_Paint);
             // 
@@ -313,7 +313,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1855, 770);
+            this.ClientSize = new System.Drawing.Size(1924, 770);
             this.Controls.Add(this.showbtnclick);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);

@@ -55,7 +55,13 @@ namespace POS_BookShop
 
         private void btncate_Click(object sender, EventArgs e)
         {
-
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+            lbshowfrm.Text = "Categories";
+            frmCategories frmcategories = new frmCategories();
+            OpenChildForm(frmcategories);
         }
 
         private void btnemp_Click(object sender, EventArgs e)

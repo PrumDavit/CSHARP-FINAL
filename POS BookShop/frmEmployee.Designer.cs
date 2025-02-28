@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEmployee));
             this.btnbrowse = new Guna.UI2.WinForms.Guna2Button();
             this.Picture = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -56,9 +57,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.txtsalary = new Guna.UI2.WinForms.Guna2TextBox();
             this.DatagridviewEmp = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.btndelete = new Guna.UI2.WinForms.Guna2Button();
-            this.btnupdate = new Guna.UI2.WinForms.Guna2Button();
-            this.txtaddress = new Guna.UI2.WinForms.Guna2TextBox();
             this.col_empid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_username = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,6 +70,10 @@
             this.col_phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_salary = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btndelete = new Guna.UI2.WinForms.Guna2Button();
+            this.btnupdate = new Guna.UI2.WinForms.Guna2Button();
+            this.txtaddress = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtsearchemp = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Picture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DatagridviewEmp)).BeginInit();
             this.SuspendLayout();
@@ -220,7 +222,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(84, 109);
+            this.label3.Location = new System.Drawing.Point(57, 109);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 23);
             this.label3.TabIndex = 63;
@@ -230,7 +232,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(787, 109);
+            this.label5.Location = new System.Drawing.Point(805, 109);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(83, 23);
             this.label5.TabIndex = 66;
@@ -529,6 +531,85 @@
             this.DatagridviewEmp.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.DatagridviewEmp.Click += new System.EventHandler(this.DatagridviewEmp_Click);
             // 
+            // col_empid
+            // 
+            this.col_empid.HeaderText = "EmpID";
+            this.col_empid.Name = "col_empid";
+            this.col_empid.ReadOnly = true;
+            // 
+            // col_name
+            // 
+            this.col_name.HeaderText = "Name";
+            this.col_name.Name = "col_name";
+            this.col_name.ReadOnly = true;
+            // 
+            // col_username
+            // 
+            this.col_username.HeaderText = "Username";
+            this.col_username.Name = "col_username";
+            this.col_username.ReadOnly = true;
+            // 
+            // col_password
+            // 
+            this.col_password.HeaderText = "Password";
+            this.col_password.Name = "col_password";
+            this.col_password.ReadOnly = true;
+            // 
+            // col_gender
+            // 
+            this.col_gender.HeaderText = "Gender";
+            this.col_gender.Name = "col_gender";
+            this.col_gender.ReadOnly = true;
+            // 
+            // col_img
+            // 
+            this.col_img.HeaderText = "Image";
+            this.col_img.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.col_img.Name = "col_img";
+            this.col_img.ReadOnly = true;
+            // 
+            // col_dob
+            // 
+            this.col_dob.HeaderText = "Daate Of Birth";
+            this.col_dob.Name = "col_dob";
+            this.col_dob.ReadOnly = true;
+            // 
+            // col_role
+            // 
+            this.col_role.HeaderText = "Role";
+            this.col_role.Name = "col_role";
+            this.col_role.ReadOnly = true;
+            // 
+            // col_hiredate
+            // 
+            this.col_hiredate.HeaderText = "HireDate";
+            this.col_hiredate.Name = "col_hiredate";
+            this.col_hiredate.ReadOnly = true;
+            // 
+            // col_email
+            // 
+            this.col_email.HeaderText = "Email";
+            this.col_email.Name = "col_email";
+            this.col_email.ReadOnly = true;
+            // 
+            // col_phone
+            // 
+            this.col_phone.HeaderText = "Phone";
+            this.col_phone.Name = "col_phone";
+            this.col_phone.ReadOnly = true;
+            // 
+            // col_salary
+            // 
+            this.col_salary.HeaderText = "Salary";
+            this.col_salary.Name = "col_salary";
+            this.col_salary.ReadOnly = true;
+            // 
+            // col_address
+            // 
+            this.col_address.HeaderText = "Address";
+            this.col_address.Name = "col_address";
+            this.col_address.ReadOnly = true;
+            // 
             // btndelete
             // 
             this.btndelete.Animated = true;
@@ -589,89 +670,41 @@
             this.txtaddress.TabIndex = 85;
             this.txtaddress.TextOffset = new System.Drawing.Point(15, 0);
             // 
-            // col_empid
+            // txtsearchemp
             // 
-            this.col_empid.HeaderText = "EmpID";
-            this.col_empid.Name = "col_empid";
-            this.col_empid.ReadOnly = true;
-            // 
-            // col_name
-            // 
-            this.col_name.HeaderText = "Name";
-            this.col_name.Name = "col_name";
-            this.col_name.ReadOnly = true;
-            // 
-            // col_username
-            // 
-            this.col_username.HeaderText = "Username";
-            this.col_username.Name = "col_username";
-            this.col_username.ReadOnly = true;
-            // 
-            // col_password
-            // 
-            this.col_password.HeaderText = "Password";
-            this.col_password.Name = "col_password";
-            this.col_password.ReadOnly = true;
-            // 
-            // col_gender
-            // 
-            this.col_gender.HeaderText = "Gender";
-            this.col_gender.Name = "col_gender";
-            this.col_gender.ReadOnly = true;
-            // 
-            // col_img
-            // 
-            this.col_img.HeaderText = "Image";
-            this.col_img.Name = "col_img";
-            this.col_img.ReadOnly = true;
-            // 
-            // col_dob
-            // 
-            this.col_dob.HeaderText = "Daate Of Birth";
-            this.col_dob.Name = "col_dob";
-            this.col_dob.ReadOnly = true;
-            // 
-            // col_role
-            // 
-            this.col_role.HeaderText = "Role";
-            this.col_role.Name = "col_role";
-            this.col_role.ReadOnly = true;
-            // 
-            // col_hiredate
-            // 
-            this.col_hiredate.HeaderText = "HireDate";
-            this.col_hiredate.Name = "col_hiredate";
-            this.col_hiredate.ReadOnly = true;
-            // 
-            // col_email
-            // 
-            this.col_email.HeaderText = "Email";
-            this.col_email.Name = "col_email";
-            this.col_email.ReadOnly = true;
-            // 
-            // col_phone
-            // 
-            this.col_phone.HeaderText = "Phone";
-            this.col_phone.Name = "col_phone";
-            this.col_phone.ReadOnly = true;
-            // 
-            // col_salary
-            // 
-            this.col_salary.HeaderText = "Salary";
-            this.col_salary.Name = "col_salary";
-            this.col_salary.ReadOnly = true;
-            // 
-            // col_address
-            // 
-            this.col_address.HeaderText = "Address";
-            this.col_address.Name = "col_address";
-            this.col_address.ReadOnly = true;
+            this.txtsearchemp.BorderRadius = 10;
+            this.txtsearchemp.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtsearchemp.DefaultText = "";
+            this.txtsearchemp.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtsearchemp.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtsearchemp.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtsearchemp.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtsearchemp.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtsearchemp.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Bold);
+            this.txtsearchemp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtsearchemp.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtsearchemp.IconLeftSize = new System.Drawing.Size(25, 25);
+            this.txtsearchemp.IconRight = ((System.Drawing.Image)(resources.GetObject("txtsearchemp.IconRight")));
+            this.txtsearchemp.IconRightOffset = new System.Drawing.Point(10, 0);
+            this.txtsearchemp.IconRightSize = new System.Drawing.Size(15, 15);
+            this.txtsearchemp.Location = new System.Drawing.Point(1250, 417);
+            this.txtsearchemp.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtsearchemp.Name = "txtsearchemp";
+            this.txtsearchemp.PasswordChar = '\0';
+            this.txtsearchemp.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.txtsearchemp.PlaceholderText = "Search";
+            this.txtsearchemp.SelectedText = "";
+            this.txtsearchemp.Size = new System.Drawing.Size(279, 45);
+            this.txtsearchemp.TabIndex = 96;
+            this.txtsearchemp.TextOffset = new System.Drawing.Point(15, 0);
+            this.txtsearchemp.TextChanged += new System.EventHandler(this.txtsearchemp_TextChanged);
             // 
             // frmEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1617, 933);
+            this.Controls.Add(this.txtsearchemp);
             this.Controls.Add(this.txtaddress);
             this.Controls.Add(this.btnupdate);
             this.Controls.Add(this.btndelete);
@@ -752,5 +785,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn col_phone;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_salary;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_address;
+        private Guna.UI2.WinForms.Guna2TextBox txtsearchemp;
     }
 }
