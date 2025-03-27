@@ -282,6 +282,7 @@ namespace POS_BookShop
                         MessageBox.Show("Error: " + ex.Message);
                     }
                     Cleartxt();
+                    Picture.Image = null;
                     btnupdate.Enabled = true;
                     btndelete.Enabled = true;
                     MessageBox.Show("Employee Update successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);

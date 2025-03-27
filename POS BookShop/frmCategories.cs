@@ -123,18 +123,31 @@ namespace POS_BookShop
 
         private void DatagridviewCate_Click(object sender, EventArgs e)
         {
+            btnupdate.Enabled = true;
+            btndelete.Enabled = true;
             cateid = DatagridviewCate.SelectedRows[0].Cells["col_cateid"].Value.ToString();
             string name = DatagridviewCate.SelectedRows[0].Cells["col_catename"].Value.ToString();
             txtcatename.Text = name;
             string des = DatagridviewCate.SelectedRows[0].Cells["col_des"].Value.ToString();
             txtdes.Text = des;
             byte[] image = DatagridviewCate.SelectedRows[0].Cells["col_image"].Value as byte[];
-            using (MemoryStream ms = new MemoryStream(image))
+            if (image is null)
             {
-                Picture.Image = System.Drawing.Image.FromStream(ms);
+                Picture.Image = null;
+                return;
             }
-            btnupdate.Enabled = true;
-            btndelete.Enabled = true;
+            else
+            {
+                using (MemoryStream ms = new MemoryStream(image))
+                {
+                    Picture.Image = System.Drawing.Image.FromStream(ms);
+                }
+            }
+            //using (MemoryStream ms = new MemoryStream(image))
+            //{
+            //    Picture.Image = System.Drawing.Image.FromStream(ms);
+            //}
+            
         }
 
         private void btnupdate_Click(object sender, EventArgs e)
@@ -154,6 +167,7 @@ namespace POS_BookShop
                     }
                     Getcate();
                     MessageBox.Show("Employee Update successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Picture.Image = null;
                     txtdes.Text = "";
                     txtcatename.Text = "";
                 }

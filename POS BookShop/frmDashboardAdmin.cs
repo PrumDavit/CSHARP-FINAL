@@ -77,7 +77,13 @@ namespace POS_BookShop
 
         private void btnbook_Click(object sender, EventArgs e)
         {
-
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+            lbshowfrm.Text = "BOOK";
+            frmOrders frmOrders = new frmOrders();
+            OpenChildForm(frmOrders);
         }
 
         private void btnlogout_Click(object sender, EventArgs e)

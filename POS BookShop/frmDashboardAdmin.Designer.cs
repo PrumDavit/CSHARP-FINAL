@@ -32,7 +32,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnlogout = new Guna.UI2.WinForms.Guna2TileButton();
             this.btnexp = new Guna.UI2.WinForms.Guna2TileButton();
-            this.btnincome = new Guna.UI2.WinForms.Guna2TileButton();
             this.label2 = new System.Windows.Forms.Label();
             this.btnbook = new Guna.UI2.WinForms.Guna2TileButton();
             this.label1 = new System.Windows.Forms.Label();
@@ -57,7 +56,6 @@
             this.panel1.BackColor = System.Drawing.Color.SlateBlue;
             this.panel1.Controls.Add(this.btnlogout);
             this.panel1.Controls.Add(this.btnexp);
-            this.panel1.Controls.Add(this.btnincome);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.btnbook);
             this.panel1.Controls.Add(this.label1);
@@ -83,7 +81,7 @@
             this.btnlogout.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnlogout.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F);
             this.btnlogout.ForeColor = System.Drawing.Color.White;
-            this.btnlogout.Location = new System.Drawing.Point(3, 573);
+            this.btnlogout.Location = new System.Drawing.Point(3, 503);
             this.btnlogout.Name = "btnlogout";
             this.btnlogout.Size = new System.Drawing.Size(256, 49);
             this.btnlogout.TabIndex = 6;
@@ -101,30 +99,12 @@
             this.btnexp.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnexp.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F);
             this.btnexp.ForeColor = System.Drawing.Color.White;
-            this.btnexp.Location = new System.Drawing.Point(6, 503);
+            this.btnexp.Location = new System.Drawing.Point(6, 433);
             this.btnexp.Name = "btnexp";
             this.btnexp.Size = new System.Drawing.Size(256, 49);
             this.btnexp.TabIndex = 6;
             this.btnexp.Text = "Expanse";
             this.btnexp.Click += new System.EventHandler(this.btnexp_Click);
-            // 
-            // btnincome
-            // 
-            this.btnincome.Animated = true;
-            this.btnincome.AutoRoundedCorners = true;
-            this.btnincome.BorderRadius = 23;
-            this.btnincome.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnincome.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnincome.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnincome.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnincome.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F);
-            this.btnincome.ForeColor = System.Drawing.Color.White;
-            this.btnincome.Location = new System.Drawing.Point(3, 433);
-            this.btnincome.Name = "btnincome";
-            this.btnincome.Size = new System.Drawing.Size(256, 49);
-            this.btnincome.TabIndex = 6;
-            this.btnincome.Text = "Incom";
-            this.btnincome.Click += new System.EventHandler(this.btnincome_Click);
             // 
             // label2
             // 
@@ -348,7 +328,6 @@
         private Guna.UI2.WinForms.Guna2TileButton btnemp;
         private Guna.UI2.WinForms.Guna2TileButton btnlogout;
         private Guna.UI2.WinForms.Guna2TileButton btnexp;
-        private Guna.UI2.WinForms.Guna2TileButton btnincome;
         private System.Windows.Forms.Panel showbtnclick;
         private System.Windows.Forms.Label lbshowfrm;
     }
