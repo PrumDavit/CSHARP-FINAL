@@ -27,6 +27,7 @@ namespace POS_BookShop
             get => lbtPrice.Text;
             set => lbtPrice.Text = value;
         }
+        public int BookID { get; set; }
 
         private void btnbuy_Click(object sender, EventArgs e)
         {
@@ -38,6 +39,11 @@ namespace POS_BookShop
             {
                 MessageBox.Show("No event handler attached to AddItem!");
             }
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

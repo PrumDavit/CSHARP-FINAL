@@ -10,7 +10,7 @@ namespace POS_BookShop
     internal class DataConnection
     {
         public static SqlConnection DataCon { get; set; }
-        private static string Server = "DESKTOP-JL9H1D3\\MSSQLSERVERDAVIT";
+        private static string Server = "LAPTOP-EULTBQQA\\MSSQLSERVERSOVAN";
         private static string Database = "dbo_bookstore";
         private static string User = "sa";
         private static string Password = "123";

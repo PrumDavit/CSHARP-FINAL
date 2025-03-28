@@ -33,3 +33,25 @@ D:\C#\CSharp\POS BookShop\POS BookShop\obj\Debug\POS BookShop.pdb
 D:\C#\CSharp\POS BookShop\POS BookShop\obj\Debug\POS_BookShop.frmCategories.resources
 D:\C#\CSharp\POS BookShop\POS BookShop\obj\Debug\POS_BookShop.frmOrder.resources
 D:\C#\CSharp\POS BookShop\POS BookShop\obj\Debug\POS_BookShop.frmOrders.resources
+D:\New\CSHARP-FINAL\POS BookShop\bin\Debug\POS BookShop.exe.config
+D:\New\CSHARP-FINAL\POS BookShop\bin\Debug\POS BookShop.exe
+D:\New\CSHARP-FINAL\POS BookShop\bin\Debug\POS BookShop.pdb
+D:\New\CSHARP-FINAL\POS BookShop\obj\Debug\POS BookShop.csproj.AssemblyReference.cache
+D:\New\CSHARP-FINAL\POS BookShop\obj\Debug\POS_BookShop.frmCategories.resources
+D:\New\CSHARP-FINAL\POS BookShop\obj\Debug\POS_BookShop.frmDashboard.resources
+D:\New\CSHARP-FINAL\POS BookShop\obj\Debug\POS_BookShop.frmDashboardAdmin.resources
+D:\New\CSHARP-FINAL\POS BookShop\obj\Debug\POS_BookShop.frmDashboardSale.resources
+D:\New\CSHARP-FINAL\POS BookShop\obj\Debug\POS_BookShop.frmEmployee.resources
+D:\New\CSHARP-FINAL\POS BookShop\obj\Debug\POS_BookShop.frmlogin.resources
+D:\New\CSHARP-FINAL\POS BookShop\obj\Debug\POS_BookShop.frmOrder.resources
+D:\New\CSHARP-FINAL\POS BookShop\obj\Debug\POS_BookShop.frmOrders.resources
+D:\New\CSHARP-FINAL\POS BookShop\obj\Debug\POS_BookShop.Properties.Resources.resources
+D:\New\CSHARP-FINAL\POS BookShop\obj\Debug\POS BookShop.csproj.GenerateResource.cache
+D:\New\CSHARP-FINAL\POS BookShop\obj\Debug\POS BookShop.csproj.CoreCompileInputs.cache
+D:\New\CSHARP-FINAL\POS BookShop\obj\Debug\POS Book.8A754037.Up2Date
+D:\New\CSHARP-FINAL\POS BookShop\obj\Debug\POS BookShop.exe
+D:\New\CSHARP-FINAL\POS BookShop\obj\Debug\POS BookShop.pdb
+D:\New\CSHARP-FINAL\POS BookShop\obj\Debug\POS_BookShop.Payments.resources
+D:\C#\CSHARP-FINAL\POS BookShop\obj\Debug\POS BookShop.csproj.AssemblyReference.cache
+D:\C#\CSHARP-FINAL\POS BookShop\obj\Debug\POS BookShop.exe
+D:\C#\CSHARP-FINAL\POS BookShop\obj\Debug\POS BookShop.pdb

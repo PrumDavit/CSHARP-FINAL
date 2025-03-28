@@ -16,6 +16,7 @@ namespace POS_BookShop
 {
     public partial class frmlogin : Form
     {
+        public static string EmpID { get; private set; }
         public frmlogin()
         {
             InitializeComponent();
@@ -59,13 +60,15 @@ namespace POS_BookShop
                 string password = txtPassword.Text.Trim();
                 string role = cbbRole.SelectedItem?.ToString();
                 // Check if the username and password are correct
-                string queryLogin = $"\tSELECT Name,Image,Username,Password,roles from tblEmployees WHERE Username='{username}' AND Password='{password}' AND Roles='{cbbRole.SelectedItem}'";
+                string queryLogin = $"\tSELECT EmployeeID,Name,Image,Username,Password,roles from tblEmployees WHERE Username='{username}' AND Password='{password}' AND Roles='{cbbRole.SelectedItem}'";
                 using (SqlCommand s = new SqlCommand(queryLogin, DataConnection.DataCon))
                 {
                     using (SqlDataReader dr = s.ExecuteReader())
                     {
                         if (dr.Read())
                         {
+                            string EmployeeID = dr["EmployeeID"]?.ToString();
+                            frmlogin.EmpID = EmployeeID;
                             byte[] imageBytes = dr["Image"] as byte[];
 
                             if (imageBytes != null)
