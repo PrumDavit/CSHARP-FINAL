@@ -17,9 +17,82 @@ namespace POS_BookShop
         {
             InitializeComponent();
         }
-
+        public void Getsale()
+        {
+            try
+            {
+                DatagridviewSale.Rows.Clear();
+                string Querysale = "SELECT * FROM tblSales;";
+                using (SqlCommand sale = new SqlCommand(Querysale, DataConnection.DataCon))
+                {
+                    if (sale.Connection.State == System.Data.ConnectionState.Open)
+                    {
+                        sale.Connection.Close();
+                    }
+                    sale.Connection.Open();
+                    using (SqlDataReader rsale = sale.ExecuteReader())
+                    {
+                        DatagridviewSale.RowTemplate.Height = 30;
+                        while (rsale.Read())
+                        {
+                            string saleid = rsale[0].ToString();
+                            string saledate = rsale[1].ToString();
+                            string dis = rsale[2].ToString();
+                            string disamount = rsale[3].ToString();
+                            string totalamount = rsale[4].ToString();
+                            string empid = rsale[5].ToString();
+                            DatagridviewSale.Rows.Add(saleid, saledate, dis, disamount, totalamount, empid);
+                        }
+                        rsale.Close();
+                        sale.Dispose();
+                    }
+                }
+                
+                    
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+        public void GeteIncome()
+        {
+            try
+            {
+                DatagridviewSale.Rows.Clear();
+                string QueryIncome = "SELECT * FROM tblIncome;";
+                using (SqlCommand income = new SqlCommand(QueryIncome, DataConnection.DataCon))
+                {
+                    if (income.Connection.State == System.Data.ConnectionState.Open)
+                    {
+                        income.Connection.Close();
+                    }
+                    income.Connection.Open();
+                    using (SqlDataReader rincome = income.ExecuteReader())
+                    {
+                        DatagridviewSale.RowTemplate.Height = 30;
+                        while (rincome.Read())
+                        {
+                            string incomeid = rincome[0].ToString();
+                            string dateincome = rincome[1].ToString();
+                            string amount = rincome[2].ToString();
+                            string saleid = rincome[3].ToString();
+                            Datagridviewincome.Rows.Add(incomeid, dateincome, amount, saleid);
+                        }
+                        rincome.Close();
+                        income.Dispose();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
         private void frmDashboard_Load(object sender, EventArgs e)
         {
+            GeteIncome();
+            Getsale();
             string countemp = "select count(*) from tblEmployees;";
             using (SqlCommand semp = new SqlCommand(countemp,DataConnection.DataCon))
             {
@@ -70,7 +143,7 @@ namespace POS_BookShop
                     }
                 }
             }
-            string countsold = "select count(*) from tblSales;";
+            string countsold = "select sum(Quantity) from tblSaleDetails;";
             using (SqlCommand ssold = new SqlCommand(countsold, DataConnection.DataCon))
             {
                 if (ssold.Connection.State == System.Data.ConnectionState.Open)
@@ -87,6 +160,32 @@ namespace POS_BookShop
                     }
                 }
             }
+            string countstock = "select sum(Stock) from tblBooks;";
+            using (SqlCommand sstock = new SqlCommand(countstock, DataConnection.DataCon))
+            {
+                if (sstock.Connection.State == System.Data.ConnectionState.Open)
+                {
+                    sstock.Connection.Close();
+                }
+                sstock.Connection.Open();
+                using (SqlDataReader rstock = sstock.ExecuteReader())
+                {
+                    if (rstock.Read())
+                    {
+                        string resualtstock = rstock[0].ToString();
+                        lbstock.Text = resualtstock;
+                        if (int.Parse(resualtstock) < 145) 
+                        { 
+                            MessageBox.Show("Low Stock!", "warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -42,6 +42,9 @@ namespace POS_BookShop
                     FO.AddItem += ProductCateItem;
                     flowLayoutPanel1.Controls.Add(FO);
                 }
+                s.Dispose();
+                r.Close();
+                
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
@@ -49,7 +52,6 @@ namespace POS_BookShop
         {
             if (!(sender is frmOrder Select_Product) || Select_Product == null)
             {
-                MessageBox.Show("Invalid Product");
                 return;
             }
 

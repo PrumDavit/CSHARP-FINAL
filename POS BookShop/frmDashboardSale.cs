@@ -77,5 +77,27 @@ namespace POS_BookShop
             frmDashboard frmDashboard = new frmDashboard();
             OpenChildForm(frmDashboard);
         }
+
+        private void btnbook_Click(object sender, EventArgs e)
+        {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+            lbshowfrm.Text = "BOOK";
+            frmOrders frmOrders = new frmOrders();
+            OpenChildForm(frmOrders);
+        }
+
+        private void btnexp_Click(object sender, EventArgs e)
+        {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+            lbshowfrm.Text = "Expense";
+            frmExpense frmexp = new frmExpense();
+            OpenChildForm(frmexp);
+        }
     }
 }

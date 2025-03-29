@@ -92,6 +92,7 @@
             this.btnexp.Size = new System.Drawing.Size(256, 49);
             this.btnexp.TabIndex = 6;
             this.btnexp.Text = "Expanse";
+            this.btnexp.Click += new System.EventHandler(this.btnexp_Click);
             // 
             // label2
             // 
@@ -120,6 +121,7 @@
             this.btnbook.Size = new System.Drawing.Size(256, 49);
             this.btnbook.TabIndex = 5;
             this.btnbook.Text = "Book";
+            this.btnbook.Click += new System.EventHandler(this.btnbook_Click);
             // 
             // label1
             // 

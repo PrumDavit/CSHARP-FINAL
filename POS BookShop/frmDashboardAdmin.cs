@@ -105,7 +105,13 @@ namespace POS_BookShop
 
         private void btnexp_Click(object sender, EventArgs e)
         {
-
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+            lbshowfrm.Text = "Expense";
+            frmExpense frmExpense = new frmExpense();
+            OpenChildForm(frmExpense);
         }
 
         private void btnincome_Click(object sender, EventArgs e)
